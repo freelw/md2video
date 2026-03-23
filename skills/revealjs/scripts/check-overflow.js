@@ -1,3 +1,5 @@
+#!/usr/bin/env bun
+
 /** Checks reveal.js slides for content overflow using Puppeteer */
 const puppeteer = require('puppeteer');
 const path = require('path');
@@ -63,7 +65,7 @@ async function checkSlideOverflow(htmlPath) {
 async function main() {
   const htmlPath = process.argv[2];
   if (!htmlPath) {
-    console.error('Usage: node check-overflow.js <path-to-html>');
+    console.error('Usage: bun check-overflow.js <path-to-html>');
     process.exit(1);
   }
 

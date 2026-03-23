@@ -1,8 +1,8 @@
-#!/usr/bin/env node
+#!/usr/bin/env bun
 
 /**
  * Creates a reveal.js presentation scaffold with the specified options.
- * Usage: node create-presentation.js [options]
+ * Usage: bun create-presentation.js [options]
  */
 
 const fs = require('fs');
@@ -45,7 +45,7 @@ function printHelp() {
   console.log(`
 create-presentation.js - Generate a reveal.js presentation scaffold
 
-Usage: node create-presentation.js [options]
+Usage: bun create-presentation.js [options]
 
 Options:
   --slides, -s <num>    Number of horizontal slides (simple mode)
@@ -60,9 +60,9 @@ Options:
   --help, -h            Show this help message
 
 Examples:
-  node create-presentation.js --slides 10 -o my-deck.html
-  node create-presentation.js --structure 1,1,d,3,1,d,1 -o my-deck.html
-  node create-presentation.js --structure 1,1,1,d,3,d,1,1 --title "Q4 Review"
+  bun create-presentation.js --slides 10 -o my-deck.html
+  bun create-presentation.js --structure 1,1,d,3,1,d,1 -o my-deck.html
+  bun create-presentation.js --structure 1,1,1,d,3,d,1,1 --title "Q4 Review"
 `);
 }
 

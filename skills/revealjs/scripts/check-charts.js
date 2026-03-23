@@ -1,10 +1,10 @@
-#!/usr/bin/env node
+#!/usr/bin/env bun
 
 /**
  * Validates chart configurations in a reveal.js presentation.
  * Checks for valid JSON syntax and required properties.
  *
- * Usage: node check-charts.js <path-to-html>
+ * Usage: bun check-charts.js <path-to-html>
  */
 
 const fs = require('fs');
@@ -142,7 +142,7 @@ function main() {
   const htmlPath = process.argv[2];
 
   if (!htmlPath) {
-    console.error('Usage: node check-charts.js <path-to-html>');
+    console.error('Usage: bun check-charts.js <path-to-html>');
     process.exit(1);
   }
 

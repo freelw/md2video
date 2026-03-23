@@ -92,7 +92,7 @@ Based on the user's content, determine:
 Use the `create-presentation.js` script (located in the `scripts/` directory next to this SKILL.md file) to generate the HTML scaffold.
 
 ```bash
-node <path-to-skill>/scripts/create-presentation.js --structure 1,1,d,3,1,d,1 --title "My Presentation" --output presentation.html
+bun <path-to-skill>/scripts/create-presentation.js --structure 1,1,d,3,1,d,1 --title "My Presentation" --output presentation.html
 ```
 
 **Finding the script path:** The script is at `scripts/create-presentation.js` relative to where this SKILL.md file is located. Common locations:
@@ -111,10 +111,10 @@ node <path-to-skill>/scripts/create-presentation.js --structure 1,1,d,3,1,d,1 --
 **Examples:**
 ```bash
 # 10 horizontal slides
-node <path-to-skill>/scripts/create-presentation.js --slides 10 --output presentation.html
+bun <path-to-skill>/scripts/create-presentation.js --slides 10 --output presentation.html
 
 # Mixed structure: intro, 2 content slides, divider, 3-slide vertical stack, divider, closing
-node <path-to-skill>/scripts/create-presentation.js --structure 1,1,1,d,3,d,1 --title "Q4 Review" --output presentation.html
+bun <path-to-skill>/scripts/create-presentation.js --structure 1,1,1,d,3,d,1 --title "Q4 Review" --output presentation.html
 ```
 
 ### Step 3: Customize the CSS
@@ -250,7 +250,6 @@ Why inline styles for grids? Each slide's layout needs vary - column ratios, gap
 - Every `<section>` should have a unique `id` attribute for stable identification
 - Use `class="section-divider"` for centered section title slides
 - Wrap main content in `<div class="content">` for consistent spacing. This is a flexbox container that fills the remaining vertical space below the title, ensuring content flows properly.
-- Use `<div class="footnote">` for attribution or source text at bottom
 - **All visible text must be inside a text element** (`<p>`, `<li>`, or `<h1>`–`<h6>`). These elements inherit the base font-size, color, and line-height from the CSS. Never put text directly in `<span>` or `<div>` — they won't pick up the base styles and will render at the wrong size. Use `<div>` only as a layout container (for grids, flexbox, etc.), with `<p>` elements inside it for the actual text.
 
 ### Step 5: Check for Content Overflow
@@ -258,7 +257,7 @@ Why inline styles for grids? Each slide's layout needs vary - column ratios, gap
 Run the overflow checker to ensure no slides have content that extends beyond boundaries:
 
 ```bash
-node scripts/check-overflow.js presentation.html
+bun scripts/check-overflow.js presentation.html
 ```
 
 The script checks each slide for:
@@ -315,7 +314,7 @@ Then re-examine the updated screenshots to verify fixes. The new timestamped fol
 After completing the presentation, let the user know they can edit text directly in the browser using the included editor script:
 
 ```bash
-node <path-to-skill>/scripts/edit-html.js <presentation-directory>/presentation.html
+bun <path-to-skill>/scripts/edit-html.js <presentation-directory>/presentation.html
 ```
 
 This opens the presentation in a local server where they can click any text to edit it inline, then save changes back to the file. It's useful for wordsmithing, fixing typos, or tweaking copy without needing to edit raw HTML.
@@ -324,7 +323,7 @@ This opens the presentation in a local server where they can click any text to e
 
 > To fine-tune the wording, you can edit text directly in the browser:
 > ```
-> node <resolved-path>/scripts/edit-html.js <presentation-directory>/presentation.html
+> bun <resolved-path>/scripts/edit-html.js <presentation-directory>/presentation.html
 > ```
 > Click any text to edit, press Escape to deselect, then click Save. Press Ctrl+C to stop the server when done.
 
@@ -432,6 +431,7 @@ The scaffold includes the Chart.js plugin for adding bar, line, pie, doughnut, a
 ## Dependencies
 
 Required for the scripts, should be already installed:
-- **Node.js** (for running scripts)
+- **Bun** (for running local scripts and managing packages)
 - **Puppeteer** (for overflow checking): `bun add puppeteer`
+- **Cheerio** (for chart validation): `bun add cheerio`
 - **Decktape** (for screenshots): `bunx decktape` (runs directly)

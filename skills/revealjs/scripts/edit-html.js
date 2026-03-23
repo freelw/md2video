@@ -1,9 +1,9 @@
-#!/usr/bin/env node
+#!/usr/bin/env bun
 
 /**
  * Local HTML Editor
  * 
- * Usage: node edit-html.js <path-to-html-file>
+ * Usage: bun edit-html.js <path-to-html-file>
  * 
  * Opens your HTML file in the browser with editable text regions.
  * Click any text to edit it, then click "Save" to write changes back to the file.
@@ -25,8 +25,8 @@ const EDITABLE_SELECTORS = 'p, h1, h2, h3, h4, h5, h6, li, td, th, span:not(.edi
 const htmlFile = process.argv[2];
 
 if (!htmlFile) {
-  console.error('Usage: node edit-html.js <path-to-html-file>');
-  console.error('Example: node edit-html.js index.html');
+  console.error('Usage: bun edit-html.js <path-to-html-file>');
+  console.error('Example: bun edit-html.js index.html');
   process.exit(1);
 }
 
