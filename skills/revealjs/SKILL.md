@@ -96,7 +96,7 @@ bun <path-to-skill>/scripts/create-presentation.js --structure 1,1,d,3,1,d,1 --t
 ```
 
 **Finding the script path:** The script is at `scripts/create-presentation.js` relative to where this SKILL.md file is located. Common locations:
-- Project skill: `.agents/skills/revealjs/scripts/create-presentation.js`
+- Project skill: `skills/revealjs/scripts/create-presentation.js`
 
 **Options:**
 - `--slides N` - Create N horizontal slides (simple mode)
@@ -274,7 +274,7 @@ Capture screenshots of all slides:
 
 ```bash
 cd <presentation-directory>
- bunx decktape reveal "presentation.html?export" output.pdf \
+ bun decktape reveal "presentation.html?export" output.pdf \
   --screenshots \
   --screenshots-directory "screenshots/$(date +%Y%m%d_%H%M%S)"
 ```
@@ -301,7 +301,7 @@ The overflow script catches most layout issues, but these problems require visua
 
 **Re-capture specific slides after fixes:**
 ```bash
-bunx decktape reveal "presentation.html?export" output.pdf \
+bun decktape reveal "presentation.html?export" output.pdf \
   --screenshots \
   --screenshots-directory "screenshots/$(date +%Y%m%d_%H%M%S)" \
   --slides 2,5,7-9
